@@ -61,6 +61,15 @@
 #define REVERSE_BUTTON_TEMP_CHANGE 0 // 0:Default 1:Reverse - Reverse the plus and minus button assigment for temperature change
 
 /**
+ * OLED Brightness
+ *
+ */
+#define MIN_BRIGHTNESS             0   // Min OLED brightness selectable
+#define MAX_BRIGHTNESS             100 // Max OLED brightness selectable
+#define BRIGHTNESS_STEP            25  // OLED brightness increment
+#define DEFAULT_BRIGHTNESS         25  // default OLED brightness
+
+/**
  * Temp change settings
  */
 #define TEMP_CHANGE_SHORT_STEP     1  // Default temp change short step +1
@@ -73,6 +82,9 @@
 #define POWER_PULSE_MAX          100 // x10 max watts
 #define POWER_PULSE_WAIT_MAX     9   // 9*2.5s = 22.5 seconds
 #define POWER_PULSE_DURATION_MAX 9   // 9*250ms = 2.25 seconds
+
+#define ADC_MAX_READING (4096 * 8) // Maximum reading of the adc
+#define ADC_VDD_MV      3300       // ADC max reading millivolts
 
 #ifdef MODEL_TS100
 #define POWER_PULSE_DEFAULT 0
@@ -134,18 +146,22 @@
 #define MAX_TEMP_C             350                     // Max soldering temp selectable °C
 #define MAX_TEMP_F             660                     // Max soldering temp selectable °F
 #define MIN_TEMP_C             10                      // Min soldering temp selectable °C
-#define MIN_TEMP_F             60                      // Min soldering temp selectable °F
+#define MIN_TEMP_F             50                      // Min soldering temp selectable °F
 #define MIN_BOOST_TEMP_C       150                     // The min settable temp for boost mode °C
 #define MIN_BOOST_TEMP_F       300                     // The min settable temp for boost mode °F
 #define NO_DISPLAY_ROTATE                              // Disable OLED rotation by accel
 #define SLEW_LIMIT             50                      // Limit to 3.0 Watts per 64ms pid loop update rate slew rate
+
+#define ACCEL_SC7
 #define ACCEL_MSA
+
 #define POW_PD 1
 #define TEMP_NTC
 #define I2C_SOFT
 #define BATTFILTERDEPTH 8
 #define OLED_I2CBB
 #define ACCEL_EXITS_ON_MOVEMENT
+#define NEEDS_VBUS_PROBE 0
 
 #define HARDWARE_MAX_WATTAGE_X10 650
 #define TIP_THERMAL_MASS         65 // TODO, needs refinement

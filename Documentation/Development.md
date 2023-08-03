@@ -94,11 +94,50 @@ To build a release instead, run the `build.sh` script. This will update translat
 ## Updating languages
 
 To update the language translation files and their associated font maps, execute the `make_translation.py` code from the `Translations` directory.
-If you edit the translation definitions or the english translation, please also run `gen_menu_docs.py` to update the settings menu documentation automatically.
+If you edit the translation definitions or the English translation, please also run `gen_menu_docs.py` to update the settings menu documentation automatically.
 
-## Building Pinecil
+## Building Pinecil V1
 
 I highly recommend using the command line tools and using Docker to run the compiler.
-It's a bit more fussy on setup than the STM tooling, and this is by far the easiest way.
+It's a bit fussier on setup than the STM tooling, and this is by far the easiest way.
 If you _need_ an IDE I have used [Nuclei's IDE](https://nucleisys.com/download.php).
 Follow the same idea as the STM Cube IDE notes above.
+
+## Building Pinecil V2
+
+To build the Pinecil V2 firmware, you can use a Docker container that provides a consistent development environment across different operating systems, including Windows with WSL2. Here's how to do it:
+
+### Prerequisites
+
+Docker Desktop: Install the latest version of Docker Desktop for your operating system from the official website.
+
+On Windows follow the instructions on the official documentation to install 'Windows Subsystem for Linux' (WSL2).
+
+### Building Steps
+
+1. Clone the repository, initialize and update submodules:
+
+    ```sh
+    git clone --recurse-submodules https://github.com/Ralim/IronOS.git
+    ```
+
+2. Start the Docker container with the development environment:
+
+    ```sh
+    cd IronOS
+    ./start_dev.sh
+    ```
+
+    This script will build a Docker image and run a container with the necessary tools to build the firmware.
+
+3. Build the firmware for Pinecil V2:
+
+    ```sh
+    cd source/source
+    ./build.sh -l EN -m Pinecilv2
+    ```
+
+    This command will compile the firmware with English language support for Pinecil V2 board.
+
+4. Find the firmware artifacts:
+    After the build completes successfully, you can find the firmware artifacts in the `source/Hexfile` directory.

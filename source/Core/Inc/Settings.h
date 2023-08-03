@@ -50,9 +50,11 @@ enum SettingsOptions {
   OLEDInversion                  = 33, // Invert the colours on the display
   OLEDBrightness                 = 34, // Brightness for the OLED display
   LOGOTime                       = 35, // Duration the logo will be displayed for
-
+  CalibrateCJC                   = 36, // Toggle calibrate CJC at next boot
+  BluetoothLE                    = 37, // Toggle BLE if present
+  PDVpdo                         = 38, // Toggle PPS & EPR
   //
-  SettingsOptionsLength = 36, //
+  SettingsOptionsLength = 39, //
 };
 
 typedef enum {

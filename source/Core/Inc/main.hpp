@@ -1,16 +1,16 @@
 #ifndef __MAIN_H
 #define __MAIN_H
-
 #include "OLED.hpp"
 #include "Setup.h"
-extern uint32_t currentTempTargetDegC;
-extern bool     settingsWereReset;
-extern bool     usb_pd_available;
+#include <stdint.h>
+extern volatile uint32_t currentTempTargetDegC;
+extern bool              settingsWereReset;
+extern bool              usb_pd_available;
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void vApplicationStackOverflowHook(TaskHandle_t *pxTask, signed portCHAR *pcTaskName);
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName);
 
 // Threads
 void                startGUITask(void const *argument);
